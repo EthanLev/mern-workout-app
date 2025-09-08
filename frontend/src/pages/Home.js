@@ -1,3 +1,7 @@
+
+// components 
+import WorkoutDetails from "../components/WorkoutDetails";
+
 /**
  * Home Page Component
  * Displays a list of all workouts fetched from the backend API
@@ -54,22 +58,9 @@ const Home = () => {
   return (
     <div className="home">
       <div className="workouts">
-        {/* 
-          Conditional Rendering with Logical AND (&&)
-          Only renders the map when workouts array exists (not null)
-          
-          Array.map() transforms each workout object into a JSX element
-          Key prop is required for React's virtual DOM optimization
-        */}
         {workouts && workouts.map((workout) => (
-          <p key={workout._id}>{workout.title}</p>
+          <WorkoutDetails key={workout._id} workout={workout} />
         ))}
-        
-        {/* 
-          Alternative approach for no data state:
-          {!workouts && <p>Loading workouts...</p>}
-          {workouts && workouts.length === 0 && <p>No workouts found</p>}
-        */}
       </div>
     </div>
   );
